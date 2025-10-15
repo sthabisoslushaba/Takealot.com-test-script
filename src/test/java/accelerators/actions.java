@@ -14,7 +14,7 @@ public class actions {
 
     public static WebDriver driver;
 
-    // *********************************************
+    // ***********************************************************
     // Initial set up for drivers
     // ***********************************************************
     public static void setUpDriver() {
