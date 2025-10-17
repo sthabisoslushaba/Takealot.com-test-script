@@ -1,9 +1,9 @@
 # Takealot.com Automation Test Script
 
 This project contains an automated test script for **Takealot.com**.  
-The script simulates a real user journey — logging in, searching for a specific product, adding it to the cart, and verifying that the item was successfully added.
+The script simulates a real user journey. Logging in, searching for a specific product, adding it to the cart, and verifying that the item was successfully added.
 
-##Steps
+## Steps
 
 - Login automation using valid credentials  
 - Search functionality for a specific product  
