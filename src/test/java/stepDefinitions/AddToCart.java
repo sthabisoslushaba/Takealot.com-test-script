@@ -22,10 +22,10 @@ public class AddToCart {
     String username = System.getenv("Takealot_username");
 
 
-    @Given("The user logged in and on the home page")
+    @Given("The user is logged in and on the home page")
     public void theUserOnHomePage() throws InterruptedException {
         actions.setUpDriver(); // Initialize driver
-        driver = actions.driver;
+        this.driver = actions.driver;
 
         driver.get(home_url);
         WebElement cookieButton = driver.findElement(By.cssSelector(
@@ -66,8 +66,6 @@ public class AddToCart {
         }
         else
             System.out.println("S'thabiso Logged In Failed");
-
-
     }
 
     @When("The user searches and adds an item to cart")
