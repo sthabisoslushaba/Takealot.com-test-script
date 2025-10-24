@@ -39,9 +39,6 @@ public class AddToCart {
     @When("the user enters valid login credentials and clicks Sign In")
     public void theUserClicksSignIn() {
 
-        //wait for at least the email field to show
-        waitForElementToBeVisible(AddToCartPage.UserEmailInput, 10);
-
         login(AddToCartPage.UserEmailInput, AddToCartPage.UserPasswordInput,
                 AddToCartPage.SignInButton, username, password );
 
@@ -50,9 +47,7 @@ public class AddToCart {
             org.junit.Assert.fail("Login Failed :/ \nStopping execution.");
 
     }
-
-
-
+    
     @And("the user searches for an existing item")
     public void theUserSearchesTheItem()
     {
@@ -67,17 +62,20 @@ public class AddToCart {
         waitForElementToBeVisible(AddToCartPage.AddToCartButton, 10);
         click(AddToCartPage.AddToCartButton);
     }
+
     @And("the user clicks go to cart")
     public void theUserGoesToCart()
     {
         click(AddToCartPage.GoToCartButton);
     }
+
+
     @Then("the user finds the added item in the cart")
     public void verifyItemInCart()
     {
         if(!isItemInCart(AddToCartPage.Item))
         {
-            org.junit.Assert.fail("404 Item Not Found.");
+            org.junit.Assert.fail("Item Not Found.");
         }
     }
 
