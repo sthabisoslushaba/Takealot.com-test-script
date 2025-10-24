@@ -1,4 +1,4 @@
-# Created at 2025-10-23T15:51:03.272
+# Created at 2025-10-24T11:27:50.648
 Boot Manifest-JAR contains absolute paths in classpath 'F:\Selenium\Add To Cart\target\test-classes'
 Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
 'other' has different root

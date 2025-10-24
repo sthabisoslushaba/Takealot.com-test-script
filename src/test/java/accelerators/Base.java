@@ -1,6 +1,4 @@
 package accelerators;
-
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -25,9 +23,6 @@ public class Base {
             driver.manage().deleteAllCookies();
             driver.manage().window().maximize();
         }
-
-        // Assign driver to actions class
-        actions.driver = driver;
     }
     public static void tearDown () {
         if (driver != null) {
