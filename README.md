@@ -1,4 +1,4 @@
-# Takealot.com Automation Test Scripts
+# Takealot.com Automation Test Scriptssss
 
 This project contains an automated test script for **Takealot.com**.  
 The script simulates a real user journey. Logging in, searching for a specific product, adding it to the cart, and verifying that the item was successfully added.
