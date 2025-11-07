@@ -1,9 +1,6 @@
 package accelerators;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -44,6 +41,7 @@ public class actions {
                     .until(ExpectedConditions.elementToBeClickable(searchButtonLocator));
             searchButton.click();
 
+
         } catch (TimeoutException e) {
             System.err.println("Timeout... " + e.getMessage());
         }
@@ -64,6 +62,29 @@ public class actions {
             return false;
         }
     }
+    public static void clickOnProductByText(String productName) {
+        try {
+            // Wait for product link that contains the text
+            By productLocator = By.xpath(
+                    "//a[contains(@href, '/')]//*[contains(., '" + productName + "')]/ancestor::a"
+            );
+
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebElement productLink = wait.until(ExpectedConditions.elementToBeClickable(productLocator));
+
+            // Scroll to the element and click via JS to avoid overlay issues
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", productLink);
+            ((JavascriptExecutor) driver).executeScript("arguments[0].click();", productLink);
+
+            System.out.println("Clicked on product: " + productName);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+
 
     public static void login(By usernameField, By passwordField, By submitButton, String username, String password) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -94,11 +115,12 @@ public class actions {
         return isElementDisplayed(LoggedInUserName) && getText(LoggedInUserName).equals("Hi S'thabiso");
     }
 
-    public static boolean isItemInCart(By CartLocator)
+    public static boolean isItemInCart(By CartLocator, String item)
     {
+
         waitForElementToBeVisible(CartLocator, 10);
         WebElement element = driver.findElement(CartLocator);
-        return element.isDisplayed();
+        return element.getText().equals(item);
 
     }
 }

@@ -7,7 +7,7 @@ Feature: Add item to cart
     Given the user is on the Takealot home page
     And the user clicks the Login button
     When the user enters valid login credentials and clicks Sign In
-    And the user searches for an existing item
+    And the user searches for "OZtrail Genesis 3 Person Dome Tent"
     And the user adds the item to the cart
     And the user clicks go to cart
     Then the user finds the added item in the cart

@@ -1,9 +1,9 @@
-F:\Selenium\Add To Cart\src\test\java\accelerators\Base.java
-F:\Selenium\Add To Cart\src\test\java\stepDefinitions\AddToCart.java
-F:\Selenium\Add To Cart\src\test\java\utility\ExceptionHandler.java
-F:\Selenium\Add To Cart\src\test\java\pageobjects\AddToCartPage.java
-F:\Selenium\Add To Cart\src\test\java\utility\Logs.java
-F:\Selenium\Add To Cart\src\test\java\utility\Utils.java
-F:\Selenium\Add To Cart\src\test\java\accelerators\actions.java
-F:\Selenium\Add To Cart\src\test\java\runner\TestRunner.java
-F:\Selenium\Add To Cart\src\test\java\runner\CucumberHooks.java
+C:\Users\SthabisoSamkeloLusha\Documents\Java\automation\Takealot.com-test-script\src\test\java\runner\CucumberHooks.java
+C:\Users\SthabisoSamkeloLusha\Documents\Java\automation\Takealot.com-test-script\src\test\java\utility\Utils.java
+C:\Users\SthabisoSamkeloLusha\Documents\Java\automation\Takealot.com-test-script\src\test\java\stepDefinitions\AddToCart.java
+C:\Users\SthabisoSamkeloLusha\Documents\Java\automation\Takealot.com-test-script\src\test\java\accelerators\actions.java
+C:\Users\SthabisoSamkeloLusha\Documents\Java\automation\Takealot.com-test-script\src\test\java\utility\ExceptionHandler.java
+C:\Users\SthabisoSamkeloLusha\Documents\Java\automation\Takealot.com-test-script\src\test\java\accelerators\Base.java
+C:\Users\SthabisoSamkeloLusha\Documents\Java\automation\Takealot.com-test-script\src\test\java\runner\TestRunner.java
+C:\Users\SthabisoSamkeloLusha\Documents\Java\automation\Takealot.com-test-script\src\test\java\pageobjects\AddToCartPage.java
+C:\Users\SthabisoSamkeloLusha\Documents\Java\automation\Takealot.com-test-script\src\test\java\utility\Logs.java

@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pageobjects.AddToCartPage;
 import utility.Utils;
+import java.util.regex.*;
 
 import static accelerators.actions.*;
 
@@ -47,12 +48,13 @@ public class AddToCart {
             org.junit.Assert.fail("Login Failed :/ \nStopping execution.");
 
     }
-    
-    @And("the user searches for an existing item")
-    public void theUserSearchesTheItem()
-    {
+
+    @And("^the user searches for \"(.*)\"$")
+    public void theUserSearchesTheItem(String item_name) {
         waitForElementToBeVisible(AddToCartPage.search, 10);
         searchItem(AddToCartPage.search, AddToCartPage.search_button, item_name);
+        click(AddToCartPage.stayOnTab);
+
 
     }
 
@@ -73,7 +75,7 @@ public class AddToCart {
     @Then("the user finds the added item in the cart")
     public void verifyItemInCart()
     {
-        if(!isItemInCart(AddToCartPage.Item))
+        if(!isItemInCart(AddToCartPage.Item, item_name))
         {
             org.junit.Assert.fail("Item Not Found.");
         }
