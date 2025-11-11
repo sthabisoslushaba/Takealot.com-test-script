@@ -1,13 +1,12 @@
 package accelerators;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+import java.io.File;
 import java.time.Duration;
-
 import static accelerators.Base.driver;
-
 
 public class actions {
 
@@ -23,36 +22,38 @@ public class actions {
         element.click();
     }
 
-    public static void searchItem(By searchFieldLocator, By searchButtonLocator, String itemName) {
+    public static void searchItem(By searchFieldLocator, By searchButtonLocator, String itemName, int timer) {
         try {
             // Wait for the search field to be visible
-            WebElement searchField = new WebDriverWait(driver, Duration.ofSeconds(10))
+            WebElement searchField = new WebDriverWait(driver, Duration.ofSeconds(timer))
                     .until(ExpectedConditions.visibilityOfElementLocated(searchFieldLocator));
 
             // Clear the field before data entry
             searchField.clear();
             searchField.sendKeys(itemName);
 
-            // Trigger blur/focusout events to force JS validation
-            searchField.sendKeys(Keys.TAB);
-
             // Wait for the search button to be clickable and click it
-            WebElement searchButton = new WebDriverWait(driver, Duration.ofSeconds(10))
+            WebElement searchButton = new WebDriverWait(driver, Duration.ofSeconds(timer))
                     .until(ExpectedConditions.elementToBeClickable(searchButtonLocator));
             searchButton.click();
-
 
         } catch (TimeoutException e) {
             System.err.println("Timeout... " + e.getMessage());
         }
     }
-
+        public static void takeScreenshot(WebDriver driver, String sTestCaseName, String path) throws Exception {
+        try {
+            File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(scrFile, new File(path + sTestCaseName + ".jpg"));
+        } catch (Exception e) {
+            throw new Exception();
+        }
+    }
 
     public static String getText(By locator) {
         waitForElementToBeVisible(locator, 10);
         return driver.findElement(locator).getText();
     }
-
 
     public static boolean isElementDisplayed(By locator) {
         try {
@@ -109,18 +110,16 @@ public class actions {
         }
     }
 
-
-
     public static boolean isLoginSuccessful(By LoggedInUserName) {
         return isElementDisplayed(LoggedInUserName) && getText(LoggedInUserName).equals("Hi S'thabiso");
     }
 
     public static boolean isItemInCart(By CartLocator, String item)
     {
-
         waitForElementToBeVisible(CartLocator, 10);
-        WebElement element = driver.findElement(CartLocator);
-        return element.getText().equals(item);
+        WebElement cartContainer = driver.findElement(CartLocator);
+        //System.out.print(cartContainer.getText());
+        return cartContainer.getText().contains(item);
 
     }
 }
