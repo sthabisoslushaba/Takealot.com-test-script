@@ -31,13 +31,12 @@ static {
 }
 
     public static String getTestCaseName(String sTestCase)throws Exception{
-        String value = sTestCase;
         try{
-            int posi = value.indexOf("@");
-            value = value.substring(0, posi);
-            posi = value.lastIndexOf(".");
-            value = value.substring(posi + 1);
-            return value;
+            int posi = sTestCase.indexOf("@");
+            sTestCase = sTestCase.substring(0, posi);
+            posi = sTestCase.lastIndexOf(".");
+            sTestCase = sTestCase.substring(posi + 1);
+            return sTestCase;
         }catch (Exception e){
             throw (e);
         }

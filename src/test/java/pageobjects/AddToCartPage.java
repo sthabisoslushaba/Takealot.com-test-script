@@ -4,11 +4,11 @@ import org.openqa.selenium.By;
 
 public class AddToCartPage {
 
-public static final By cartContainer =  By.cssSelector("ul.cell.auto.small-order-2.large-order-1");
+    public static final By cartContainer =  By.cssSelector("ul.cell.auto.small-order-2.large-order-1");
     public static final By CookieButton = By.cssSelector(
             "#shopfront-app > div.header-module_bottom-banners-container_3F8RC > div > div > button"
     );
-
+    public static final By LoggedInAdButton = By.cssSelector("body > div.ab-iam-root.v3.ab-animate-in.ab-animate-out.ab-effect-slide.ab-show > div > button > svg:nth-child(1) > path");
     public static final By AdButton = By.cssSelector("body > div.ab-iam-root.v3.ab-animate-in.ab-animate-out.ab-effect-modal.ab-show > div.ab-in-app-message.ab-background.ab-modal-interactions.ab-modal.ab-centered > button");
 
     public static final By LoginButton = By.cssSelector(

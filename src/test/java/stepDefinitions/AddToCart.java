@@ -1,5 +1,4 @@
 package stepDefinitions;
-
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -23,13 +22,16 @@ public class AddToCart {
 
         waitForElementToBeVisible(AddToCartPage.CookieButton, 10);
         click(AddToCartPage.CookieButton);
+        takeScreenshot("HomePage");
     }
 
     @And("the user clicks the Login button")
     public void theUserClicksTheLoginButton() {
         waitForElementToBeVisible(AddToCartPage.LoginButton, 10);
         click(AddToCartPage.LoginButton);
-        waitForElementToBeVisible(AddToCartPage.AdButton, 10);
+        takeScreenshot("LoginPage");
+
+        waitForElementToBeVisible(AddToCartPage.AdButton, timer);
         click(AddToCartPage.AdButton);
     }
 
@@ -43,25 +45,30 @@ public class AddToCart {
         if (!isLoginSuccessful(AddToCartPage.LoggedInUserName))
             org.junit.Assert.fail("Login Failed :/ \nStopping execution.");
 
+        takeScreenshot("UserHasLoggedIn");
     }
 
     @And("^the user searches for \"(.*)\"$")
     public void theUserSearchesTheItem(String item_name) {
+
         waitForElementToBeVisible(AddToCartPage.search, timer);
+        takeScreenshot("SearchItem");
         searchItem(AddToCartPage.search, AddToCartPage.search_button, item_name, timer);
     }
-
     @And("the user adds the item to the cart")
-    public void theUserAddsTheItemToCart() {
-        waitForElementToBeVisible(AddToCartPage.AddToCartButton, timer);
-        click(AddToCartPage.AddToCartButton);
+    public void theUserAddsTheItemToCart() throws InterruptedException {
+        clickAddToCart(item_name);
     }
+
     @And("the user clicks go to cart")
     public void theUserGoesToCart() {
         click(AddToCartPage.GoToCartButton);
+        takeScreenshot("CartItem");
     }
+
     @Then("the user finds the added item in the cart")
     public void verifyItemInCart() {
+        takeScreenshot("itemsInTheCart");
         if (!isItemInCart(AddToCartPage.cartContainer, item_name)) {
             org.junit.Assert.fail("Item Not Found.");
         }
